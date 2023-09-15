@@ -29,19 +29,20 @@ public static void main(String[] args) {
    Scanner stdIn = new Scanner(System.in);
 
    System.out.println("단순 삽입 정렬");
-   /*
+   
    System.out.print("요솟수: ");
    int nx = stdIn.nextInt();
-   */
-   //int[] x = new int[nx];
+   
+   int[] x = new int[nx];
+   /*
    int nx = 7;
    int []x = {6,4,1,7,3,9,8};
-   /*
+   */
    for (int i = 0; i < nx; i++) {
        double d = Math.random();
        x[i] = (int) (d * 100);
    }
-   */
+   
    for (int n: x)
   	 System.out.print(" " + n);
    System.out.println();
