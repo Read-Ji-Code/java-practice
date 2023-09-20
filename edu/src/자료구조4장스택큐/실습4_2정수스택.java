@@ -15,9 +15,6 @@ class IntStack {
 	private int capacity; // 스택의 크기
 	private int ptr; // 스택 포인터
 
-//	public IntStack() {
-//	}
-
 	public IntStack(int[] stk, int capacity, int ptr) {
 		this.stk = stk;
 		this.capacity = capacity;
