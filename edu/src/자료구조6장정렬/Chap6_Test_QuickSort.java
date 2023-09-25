@@ -151,17 +151,24 @@ public class Chap6_Test_QuickSort {
 		st.push(pt);
 		//코드추가 완성
 		while (st.isEmpty() != true) {
-			st.pop();
+			pt = st.pop();
 			int pl = left = pt.getX();
 			int pr = right = pt.getY();
-			int x = a[(left + right) / 2];
-			
-			do {
-				while (a[pl] < x) pl++;
-				while (a[pr] > x) pr--;
-				if (pl <= pr)
-					swap(a, pl++, pr--);
-			} while (pl <= pr);
+			int x = a[(pl + pr)/2];
+		
+		do {
+			while (a[pl] < x) pl++;
+			while (a[pr] > x) pr--;
+			if(pl <= pr)
+				swap(a, pl++, pr--);
+		}while(pl <= pr);
+	 
+		if (left < pr) {
+			st.push(new Point(left, pr));
+		}
+		if (pl < right) {
+			st.push(new Point(pl, right));
+		}
 		}
 	}
 
@@ -177,7 +184,6 @@ public class Chap6_Test_QuickSort {
 		System.out.println();
 
 		quickSort(x, 0, nx - 1); // 배열 x를 퀵정렬
-
 		System.out.println("오름차순으로 정렬했습니다.");
 		for (int i = 0; i < nx; i++)
 			System.out.print(" " + x[i]);

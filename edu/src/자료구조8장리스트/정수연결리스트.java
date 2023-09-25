@@ -27,7 +27,8 @@ class LinkedList1 {
 
 	public int Delete(int element) // delete the element
 	{
-
+		return element;
+	
 	}
 
 	public void Show() { // 전체 리스트를 순서대로 출력한다.
@@ -42,7 +43,7 @@ class LinkedList1 {
 			if (p.data < element) {
 				q = p;
 				p = p.next;
-				
+			
 			}
 			else {
 				tmp.next = p; //1번처리
@@ -108,8 +109,8 @@ public class 정수연결리스트 {
 			switch (menu = SelectMenu()) {
 			case Add: // 머리노드 삽입
 				data = rand.nextInt(20);
-				//double d = Math.random();
-				//data = (int) (d * 50);
+				double d = Math.random();
+				data = (int) (d * 50);
 				l.Add(data);
 				break;
 			case Delete: // 머리 노드 삭제
