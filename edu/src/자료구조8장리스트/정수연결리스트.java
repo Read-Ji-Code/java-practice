@@ -1,12 +1,9 @@
 package 자료구조8장리스트;
 
-
 //단순한 linked list에서 insert, delete하는 알고리즘을 코딩: 1단계
 
 import java.util.Random;
 import java.util.Scanner;
-
-import org.w3c.dom.Node;
 
 class Node1 {
 	int data;
@@ -25,36 +22,61 @@ class LinkedList1 {
 		first = null;
 	}
 
-	public int Delete(int element) // delete the element
-	{
-		return element;
-	
+	public int Delete(int element) {
+		Node1 p = first, q = null;
+
+		while (p != null) {
+			if (element > p.data) {
+				q = p;
+				p = p.link;
+			} else if (p.data == element) {
+				if (q == null) {
+					first = p.link;
+				} else
+					q.link = p.link;
+				return 1;
+			}
+		}
+		return -1;
 	}
 
 	public void Show() { // 전체 리스트를 순서대로 출력한다.
-
+		Node1 tmp = first;
+		while (tmp != null) {
+			System.out.println(tmp.data);
+			tmp = tmp.link;
+		}
+		System.out.println();
 	}
 
 	public void Add(int element) // 임의 값을 삽입할 때 리스트가 오름차순으로 정렬이 되도록 한다
 	{
-		Node tmp = new Node1(element);
-		Node p = first, q = null;
-		while(p != null) {
+		Node1 tmp = new Node1(element);
+		Node1 p = first, q = null;
+		while (p != null) {
 			if (p.data < element) {
 				q = p;
-				p = p.next;
-			
-			}
-			else {
-				tmp.next = p; //1번처리
-				q.next = tmp;
+				p = p.link;
+
+			} else {
+				tmp.link = p; // 1번처리
+				q.link = tmp;
 			}
 		}
 		first = tmp;
 	}
 
 	public boolean Search(int data) { // 전체 리스트를 순서대로 출력한다.
-		return true;
+		Node1 p = first;
+
+		while (p != null) {
+			if (p.data == data) {
+				return true;
+			} else {
+				p = p.link;
+			}
+		}
+		return false;
 	}
 }
 
@@ -92,6 +114,7 @@ public class 정수연결리스트 {
 			}
 			System.out.print(" : ");
 			key = sc.nextInt();
+			// sc.nextLine();
 		} while (key < Menu.Add.ordinal() || key > Menu.Exit.ordinal());
 		return Menu.MenuAt(key);
 	}
